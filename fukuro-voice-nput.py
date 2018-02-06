@@ -34,7 +34,6 @@ try:
 #                    if m:
 #                        word = m.group(1)
 #                        print (word)
-
             buff.close()
             buff = StringIO(u(''))
             if lines[len(lines)-1] != '.':
