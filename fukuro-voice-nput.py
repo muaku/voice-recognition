@@ -29,11 +29,11 @@ try:
             lines = data.splitlines()
             for i in range(len(lines)-1):
                 if lines[i] != '.':
-                    #print(lines[i])
-                    m = re.search(pattern, lines[i])
-                    if m:
-                        word = m.group(1)
-                        print (word)
+                    print(lines[i])
+                    # m = re.search(pattern, lines[i])
+                    # if m:
+                    #     word = m.group(1)
+                    #     print (word)
 
             buff.close()
             buff = StringIO(u(''))
