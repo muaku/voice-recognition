@@ -44,16 +44,19 @@ try:
                             if(shouldListen == False):
                                 print ("ユーザ：{}".format(word))
                                 print ("フクロウ：はい、何でしょうか？")
+                                print("-------------------")
                             else:
                                 print ("ユーザ：{}".format(word))
                                 print ("フクロウ：はい、聞いていますよ。何でしょうか？")
+                                print("-------------------")
                             shouldListen = True
                        elif shouldListen == True :
                             print ("ユーザ：{}".format(word))
                             if (u('登録') in word):   # 命令
                                 tempRegisterDetail.update({ "command": "登録" })
                                 print ("tempRegisterDetail: {}".format(tempRegisterDetail))
-                                print ("登録しますね。idは何？")
+                                print ("フクロウ：登録しますね。idは何？")
+                                print("-------------------")
                                 # フクロウ：idのnumberを言ってください
                             # id 取得
                             elif (tempRegisterDetail["command"] == "登録") and (tempRegisterDetail["id"] == None):
@@ -65,13 +68,15 @@ try:
                                     print (id)
                                     tempRegisterDetail.update({ "id": id})
                                     print ("tempRegisterDetail: {}".format(tempRegisterDetail))
-                                    print ("お名前は？")
+                                    print ("フクロウ：お名前は？")
+                                    print("-------------------")
                             # name 取得
                             elif (tempRegisterDetail["command"] == "登録") and (tempRegisterDetail["id"] != None) and (tempRegisterDetail["name"] == ""):
                                 # TODO: 名前を識別できる機能を追加
                                 tempRegisterDetail.update({ "name": word})
                                 print ("tempRegisterDetail: {}".format(tempRegisterDetail))
                                 print ("idは{0},名前は{1}で登録して、よろしいですか？はい　か　いいえで答えてください".format(tempRegisterDetail["id"], tempRegisterDetail["name"]))
+                                print("-------------------")
                             elif (tempRegisterDetail["command"] == "登録") and (tempRegisterDetail["id"] != None) and (tempRegisterDetail["name"] != ""):
                                 if(word == "はい"):
                                     # TODO: カメラ認識でユーザを登録
@@ -82,7 +87,8 @@ try:
                                         "name": ""
                                     }
                                     print ("tempRegisterDetail: {}".format(tempRegisterDetail))
-                                    print ("登録しましたので、終了しますね")
+                                    print ("フクロウ：登録しましたので、終了しますね")
+                                    print("-------------------")
                                 elif(word == "いいえ"):
                                     shouldListen = False
                                     tempRegisterDetail = {
@@ -91,9 +97,15 @@ try:
                                         "name": ""
                                     }
                                     print ("tempRegisterDetail: {}".format(tempRegisterDetail))
-                                    print ("終了しますね。１からやり直してね。")
+                                    print ("フクロウ：終了しますね。１からやり直してね。")
+                                    print("-------------------")
                                 else:
-                                    print ("はい　か　いいえで答えてくださいね")
+                                    print ("フクロウ：はい　か　いいえで答えてくださいね")
+                            else:
+                                print("フクロウ：以下の望ましいコマンドのいずれかを言ってください")
+                                print("フクロウ：1. 登録")
+                                print("フクロウ：以上です。")
+                                print("-------------------")
                                 
             buff.close()
             buff = StringIO(u(''))
