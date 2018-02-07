@@ -61,6 +61,7 @@ try:
                             if (u('登録') in word):   # 命令
                                 tempRegisterDetail.update({ "command": "登録" })
                                 print ("tempRegisterDetail: {}".format(tempRegisterDetail))
+                                # TODO: tempRegisterDetail を確認してから、喋る内容を決める (exp: idがあれば、お名前はって言う)
                                 print ("フクロウ：登録しますね。idは何？")
                                 print("-------------------")
                                 # フクロウ：idのnumberを言ってください
