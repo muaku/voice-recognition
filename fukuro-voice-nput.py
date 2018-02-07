@@ -86,7 +86,7 @@ try:
                                     }
                                     print ("tempRegisterDetail: {}".format(tempRegisterDetail))
                                     print ("終了しますね。１からやり直してね。")
-                                else
+                                else:
                                     print ("はい　か　いいえで答えてくださいね")
             buff.close()
             buff = StringIO(u(''))
