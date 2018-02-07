@@ -24,7 +24,7 @@ tempRegisterDetail = {
 }
 
 buff = StringIO(u(''))
-pattern = r'WHYPO WORD=\"(.*)\" CLASSID'
+pattern = r'WHYPO WORD=\"(.*)\" CLASSID=\"(.*)\"'
 try:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((host, port))
