@@ -51,10 +51,10 @@ try:
                         elif(shouldListen == True):
                             print ("ユーザ：{}".format(word))
                             if (u('登録') in word):   # 命令
-                            tempRegisterDetail.update({ "command": "登録" })
-                            print ("tempRegisterDetail: {}".format(tempRegisterDetail))
-                            print ("登録しますね。idは何？")
-                            # フクロウ：idのnumberを言ってください
+                                tempRegisterDetail.update({ "command": "登録" })
+                                print ("tempRegisterDetail: {}".format(tempRegisterDetail))
+                                print ("登録しますね。idは何？")
+                                # フクロウ：idのnumberを言ってください
                             # id 取得
                             elif (tempRegisterDetail["command"] == "登録") and (tempRegisterDetail["id"] == None):
                                 # 数字のみゲット
@@ -68,10 +68,10 @@ try:
                                     print ("お名前は？")
                             # name 取得
                             elif (tempRegisterDetail["command"] == "登録") and (tempRegisterDetail["id"] != None) and (tempRegisterDetail["name"] == ""):
-                            # TODO: 名前を識別できる機能を追加
-                            tempRegisterDetail.update({ "name": word})
-                            print ("tempRegisterDetail: {}".format(tempRegisterDetail))
-                            print ("idは{0},名前は{1}で登録して、よろしいですか？はい　か　いいえで答えてください".format(tempRegisterDetail["id"], tempRegisterDetail["name"]))
+                                # TODO: 名前を識別できる機能を追加
+                                tempRegisterDetail.update({ "name": word})
+                                print ("tempRegisterDetail: {}".format(tempRegisterDetail))
+                                print ("idは{0},名前は{1}で登録して、よろしいですか？はい　か　いいえで答えてください".format(tempRegisterDetail["id"], tempRegisterDetail["name"]))
                             elif (tempRegisterDetail["command"] == "登録") and (tempRegisterDetail["id"] != None) and (tempRegisterDetail["name"] != ""):
                                 if(word == "はい"):
                                     # TODO: カメラ認識でユーザを登録
