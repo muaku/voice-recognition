@@ -65,7 +65,7 @@ try:
                                 # TODO: 名前を識別できる機能を追加
                                 tempRegisterDetail.update({ "name": word})
                                 print ("tempRegisterDetail: {}".format(tempRegisterDetail))
-                                print ("idは{1},名前は{2}で登録して、よろしいですか？はい　か　いいえで答えてください".format(tempRegisterDetail["id"], tempRegisterDetail["name"]))
+                                print ("idは{0},名前は{1}で登録して、よろしいですか？はい　か　いいえで答えてください".format(tempRegisterDetail["id"], tempRegisterDetail["name"]))
                             elif (tempRegisterDetail["command"] == "登録") and (tempRegisterDetail["id"] != None) and (tempRegisterDetail["name"] != ""):
                                 if(word == "はい"):
                                     # TODO: カメラ認識でユーザを登録
