@@ -3,11 +3,9 @@ import sys
 import subprocess
 
 argv = sys.argv
-id = sys.argv[1]
+id = int(sys.argv[1])
 name = sys.argv[2]
-# print (argv)
-# id と name の入力が必要
-subprocess.Popen(['/root/Mimamori/hvc-p2-sample/code/faceRegister 10 0 %s' % name], shell=True)
+subprocess.Popen(['/root/Mimamori/hvc-p2-sample/code/faceRegister.out %d 0 %s' % (id,name)], shell=True)
 
-# subprocess.call(['./camtest.py', id, name], shell=True)
-
+#p = subprocess.Popen(['exec /root/Mimamori/hvc-p2-sample/code/faceRegister.out %d 0 %s' % (id,name)], stdout=subprocess.PIPE, shell=True)
+#p.kill()
