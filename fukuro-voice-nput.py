@@ -38,11 +38,14 @@ try:
                        # 処理の判断
                        if (u('フクロウ') in word) or (u('フクロ') in word) or (shouldListen == True):
                             shouldListen = True     # 次の会話を聞く
+                            print (word)
                             if (u('登録') in word):
                                 tempRegisterDetail[0] = "登録"
+                                print ("tempRegisterDetail: {}".format(tempRegisterDetail))
                                 # フクロウ：idのnumberを言ってください
                             elif (tempRegisterDetail[0] == "登録") and (tempRegisterDetail[1] == ""):
                                 tempRegisterDetail[1] = word
+                                print ("tempRegisterDetail: {}".format(tempRegisterDetail))
                             elif (tempRegisterDetail[0] == "登録") and (tempRegisterDetail[1] != ""):
                                 tempRegisterDetail[2] = word
                                 print ("tempRegisterDetail: {}".format(tempRegisterDetail))
