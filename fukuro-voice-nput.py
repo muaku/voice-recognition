@@ -48,7 +48,7 @@ try:
                                 print ("ユーザ：{}".format(word))
                                 print ("フクロウ：はい、聞いていますよ。何でしょうか？")
                             shouldListen = True     # 次の会話を聞く
-                        elif (shouldListen == True):
+                        elif(shouldListen == True):
                             print ("ユーザ：{}".format(word))
                             if (u('登録') in word):   # 命令
                                 tempRegisterDetail.update({ "command": "登録" })
