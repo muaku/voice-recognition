@@ -15,6 +15,8 @@ except: # python3
 host = '127.0.0.1'
 port = 10500
 bufsize = 1024
+shouldListen = False
+tempRegisterDetail = ["", "",""]     # 3 param: 0 命令, 1:
 
 buff = StringIO(u(''))
 pattern = r'WHYPO WORD=\"(.*)\" CLASSID'
@@ -29,11 +31,24 @@ try:
             lines = data.splitlines()
             for i in range(len(lines)-1):
                 if lines[i] != '.':
-#                    print(lines[i])
                    m = re.search(pattern, lines[i])
                    if m:
                        word = m.group(1)
-                       print (word)
+#                       print (word)
+                       # 処理の判断
+                       if (u('フクロウ') in word) or (u('フクロ') in word) or (shouldListen == True):
+                            shouldListen = True     # 次の会話を聞く
+                            if (u('登録') in word):
+                                tempRegisterDetail[0] = "登録"
+                                # フクロウ：idのnumberを言ってください
+                            elif (tempRegisterDetail[0] == "登録") and (tempRegisterDetail[1] == ""):
+                                tempRegisterDetail[1] = word
+                            elif (tempRegisterDetail[0] == "登録") and (tempRegisterDetail[1] != ""):
+                                tempRegisterDetail[2] = word
+                                print ("tempRegisterDetail: {}".format(tempRegisterDetail))
+                                # TODO: カメラ認識でユーザを登録
+                                shouldListen = False
+                                tempRegisterDetail = ["", "", ""]
             buff.close()
             buff = StringIO(u(''))
             if lines[len(lines)-1] != '.':
