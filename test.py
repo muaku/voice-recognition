@@ -1,6 +1,6 @@
-test="私のidにしてください"
-val = "".join(filter(str.isdigit, test))
-print ("val: {}".format(val))
-if(val != ""):
-    number = int(val)
-    print (number)
+a = 0
+b = 2
+if (a ==1):
+    print (a)
+elif (b==2):
+    print (b)
