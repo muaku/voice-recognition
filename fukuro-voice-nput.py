@@ -39,7 +39,7 @@ try:
                    m = re.search(pattern, lines[i])
                    if m:
                        word = m.group(1)
-                       # 処理の判断
+                       # 初期化コマンド
                        if (u('フクロウ') in word) or (u('フクロ') in word):
                             if(shouldListen == False):
                                 print ("ユーザ：{}".format(word))
@@ -49,6 +49,12 @@ try:
                                 print ("ユーザ：{}".format(word))
                                 print ("フクロウ：はい、聞いていますよ。何でしょうか？")
                                 print("-------------------")
+                            # 初期化
+                            tempRegisterDetail = {
+                                "command": "",
+                                "id": None,
+                                "name": ""
+                            }
                             shouldListen = True
                        elif shouldListen == True :
                             print ("ユーザ：{}".format(word))
