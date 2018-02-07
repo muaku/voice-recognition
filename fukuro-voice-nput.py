@@ -61,19 +61,33 @@ try:
                                     print ("tempRegisterDetail: {}".format(tempRegisterDetail))
                                     print ("お名前は？")
                             # name 取得
-                            elif (tempRegisterDetail["command"] == "登録") and (tempRegisterDetail["id"] != None):
+                            elif (tempRegisterDetail["command"] == "登録") and (tempRegisterDetail["id"] != None) and (tempRegisterDetail["name"] == ""):
                                 # TODO: 名前を識別できる機能を追加
                                 tempRegisterDetail.update({ "name": word})
                                 print ("tempRegisterDetail: {}".format(tempRegisterDetail))
-                                # TODO: カメラ認識でユーザを登録
-                                shouldListen = False
-                                tempRegisterDetail = {
-                                    "command": "",
-                                    "id": None,
-                                    "name": ""
-                                }
-                                print ("tempRegisterDetail: {}".format(tempRegisterDetail))
-                                print ("登録しましたので、終了しますね")
+                                print ("idは{1},名前は{2}で登録して、よろしいですか？はい　か　いいえで答えてください".format(tempRegisterDetail["id"], tempRegisterDetail["name"]))
+                            elif (tempRegisterDetail["command"] == "登録") and (tempRegisterDetail["id"] != None) and (tempRegisterDetail["name"] != ""):
+                                if(word == "はい"):
+                                    # TODO: カメラ認識でユーザを登録
+                                    shouldListen = False
+                                    tempRegisterDetail = {
+                                        "command": "",
+                                        "id": None,
+                                        "name": ""
+                                    }
+                                    print ("tempRegisterDetail: {}".format(tempRegisterDetail))
+                                    print ("登録しましたので、終了しますね")
+                                elif(word == "いいえ"):
+                                    shouldListen = False
+                                    tempRegisterDetail = {
+                                        "command": "",
+                                        "id": None,
+                                        "name": ""
+                                    }
+                                    print ("tempRegisterDetail: {}".format(tempRegisterDetail))
+                                    print ("終了しますね。１からやり直してね。")
+                                else
+                                    print ("はい　か　いいえで答えてくださいね")
             buff.close()
             buff = StringIO(u(''))
             if lines[len(lines)-1] != '.':
