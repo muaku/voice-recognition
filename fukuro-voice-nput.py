@@ -40,10 +40,16 @@ try:
                    if m:
                        word = m.group(1)
                        # 処理の判断
-                       if (u('フクロウ') in word) or (u('フクロ') in word) or (shouldListen == True):
+                       if (u('フクロウ') in word) or (u('フクロ') in word):
+                            if(shouldListen == False):
+                                print ("ユーザ：{}".format(word))
+                                print ("フクロウ：はい、何でしょうか？")
+                            else:
+                                print ("ユーザ：{}".format(word))
+                                print ("フクロウ：はい、聞いていますよ。何でしょうか？")
                             shouldListen = True     # 次の会話を聞く
-                            print (word)
-                            print ("はい、何でしょうか？")
+                        elif (shouldListen == True):
+                            print ("ユーザ：{}".format(word))
                             if (u('登録') in word):   # 命令
                                 tempRegisterDetail.update({ "command": "登録" })
                                 print ("tempRegisterDetail: {}".format(tempRegisterDetail))
